@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Todo App</title>
+</head>
+
+<body style="background-color: black;">
+    <span id="topheader">
+        <h1 style="color:white;font-size:50px;font-weight:bolder;padding-left:70px;padding-bottom:20px; padding-top: 40px;font-family:'Times New Roman', Times, serif;"> Tasks <span style="font-size:50px;font-weight: lighter;">List</span></h1>
+        <h3 style="color:white;font-size:30px;margin:5px;padding-right:110px;padding-top:25px" id="myBtn">
+            <i class="fa fa-plus-circle" style="color: dodgerblue;font-size: 40px;" id="p"></i> <span style="font-family:'Times New Roman', Times, serif;">Add Item</span>
+        </h3>
+
+    </span>
+
+    <span id="topheadertwo" style="display: none;">
+        <h2 style="color:white" onclick="backClick()">
+            <i class="fa fa-arrow-circle-left" style="color:white;font-size: 30px;margin-left:230px;width:50px"></i> Back
+        </h2>
+        <h2 style="color:White;font-size: 45px;" id="head_task_title">Task Title</h2>
+        <h2 style="color:white" id="taskBtn" onclick="showTaskModalOnly()">
+            <i class="fa fa-plus-circle" style="color: dodgerblue;font-size:35px;margin-right:230px"></i> 
+        </h2>
+    </span>
+
+    <span id="overview">
+        <div class="contener" id="div-1">
+            <p id="noitem" style="color:white;font-size:30px;padding-left:100px;font-family: 'Times New Roman', Times, serif;">No items in todo list</p>
+        </div>
+    </span>
+
+    <span id="details">
+        <div class="contener" style="justify-content: center;">
+            <div id="details-div" class="board"></div>
+        </div>
+    </span>
+
+    <div id="toDoModelBoard" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" onclick="closeModel('toDoModelBoard')">&times;</span>
+            <p>Add New list</p>
+            <input type="text" id="baord_name" placeholder="Add New List">
+            <button onclick="addNewBoard()">Add</button>
+            <button onclick="closeModel('toDoModelBoard')">Close</button>
+
+        </div>
+    </div>
+
+    <div id="toDoModelTask" class="modal">
+         <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close " onclick="closeModel('toDoModelTask')">&times;</span>
+            <p>Add New Task</p>
+            <input type="text" id="task_name">
+            <button onclick="addNewTaskModalButton()">Add</button>
+            <button onclick="closeModel('toDoModelTask')">Close</button>
+        </div>
+    </div>
+</body>
+
+<div style="display: none;" id="board_clone">
+    <div class="board">
+        <h1 class="border-title" onclick="showOnlyBoard(this)">{{baord_title_value}}</h1>
+        <hr>
+        <ul class="tasklist">
+
+        </ul>
+        <div class="border-footer">
+            <i class="fa fa-trash-o" onclick="removeBoard(this)"></i>
+            <i class="fa fa-plus" onclick="showTaskModal(this)"></i>
+        </div>
+    </div>
+</div>
+<script src='index.js'></script>
+
+</html>
